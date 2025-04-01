@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Excel Comparison Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PostLoad Validation Utility</h1>
+            <p class="subtitle">Compare pre-load and post-load Excel files</p>
+        </header>
+
+        <div class="file-upload-container">
+            <div class="file-upload-box">
+                <h3>Pre-load File</h3>
+                <div class="file-input-wrapper">
+                    <input type="file" id="preloadFile" accept=".xlsx" class="file-input">
+                    <label for="preloadFile" class="file-label">Choose File</label>
+                    <div class="file-info">
+                        <span class="file-name" id="preloadFileName">No file selected</span>
+                        <span class="file-status" id="preloadStatus"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="file-upload-box">
+                <h3>Post-load File</h3>
+                <div class="file-input-wrapper">
+                    <input type="file" id="postloadFile" accept=".xlsx" class="file-input">
+                    <label for="postloadFile" class="file-label">Choose File</label>
+                    <div class="file-info">
+                        <span class="file-name" id="postloadFileName">No file selected</span>
+                        <span class="file-status" id="postloadStatus"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button id="loadColumnsButton" onclick="loadAllSheets()" class="action-button">
+            <span class="button-icon">📄</span>
+            Load Sheets and Columns
+        </button>
+
+        <div class="mapping-section">
+            <h2>Sheet Mappings</h2>
+            <div id="sheetMappings" class="mapping-grid">
+                <!-- Sheet mapping rows will be added here dynamically -->
+            </div>
+        </div>
+
+        <button id="compareButton" onclick="compareFiles()" class="action-button compare-button">
+            <span class="button-icon">✓</span>
+            Compare Files
+        </button>
+        
+        <div id="status" class="status-message"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 
